@@ -1,6 +1,6 @@
 schedules:
-- cron: "0 0 0 * *"
-  displayName: 25th 5:30 AM (IST) Every Month
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
   branches:
     include:
     - master
