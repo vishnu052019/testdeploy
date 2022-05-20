@@ -1,10 +1,9 @@
-jobs:
-- job: 
-  - task: AzureWebApp@1
-    inputs:
-      azureSubscription: '3ccd006c-37e8-4e70-acf7-702151c1fa29'
-      appType: webAppLinux
-      appName: 'readyit-app'
-      deployToSlotOrASE: true
-      resourceGroupName: 'rg'
-      slotName: staging
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: '3ccd006c-37e8-4e70-acf7-702151c1fa29'
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az account show
