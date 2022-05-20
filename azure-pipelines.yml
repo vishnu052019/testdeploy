@@ -1,8 +1,12 @@
-stages:
-- stage: 
 schedules:
-- cron: "0 0 * * *"
-  displayName: Daily midnight build
+- cron: "0 2 1-7 * SUN"
+  displayName: 25th 5:30 AM (IST) Every Month
   branches:
     include:
-    - main
+    - master
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
