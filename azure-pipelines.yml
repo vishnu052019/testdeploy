@@ -1,9 +1,15 @@
-- task: AzureCLI@2
-  displayName: Azure CLI
-  inputs:
-    azureSubscription: '3ccd006c-37e8-4e70-acf7-702151c1fa29'
-    scriptType: ps
-    scriptLocation: inlineScript
-    inlineScript: |
-      az --version
-      az account show
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - main
+    - releases/*
+    exclude:
+    - releases/ancient/*
+- cron: "0 12 * * 0"
+  displayName: Weekly Sunday build
+  branches:
+    include:
+    - releases/*
+  always: true
